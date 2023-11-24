@@ -117,12 +117,17 @@ public class Model {
         return;
     }
 
-    public void updateStudentEmailButtonMethod(int student_id) {
+    public void updateStudentEmailButtonMethod(String student_id, String email) {
         // Debug
         System.out.println("Invoking model method for updateStudentEmailButton event...");
+        System.out.println("student_id: " + student_id);
+        System.out.println("email: " + email);
+
+        // Cast to int
+        int student_id_int = Integer.parseInt(student_id);
 
         // DB Operation
-        //dbops.updateStudentEmail(student_id, email);
+        //dbops.updateStudentEmail(student_id_int, email);
 
         return;
     }

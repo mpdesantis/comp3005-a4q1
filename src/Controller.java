@@ -117,9 +117,11 @@ public class Controller implements ActionListener, ListSelectionListener {
                 System.out.println("updateStudentEmailButton clicked.");
 
                 // Get the text fields from the View boxes
+                String student_id = view.updateStudentIdTextPane.getText();
+                String email = view.updateStudentEmailTextPane.getText();
                 
                 // Invoke the model's operation, which will issue the dbop
-                //model.updateStudentEmailButtonMethod();
+                model.updateStudentEmailButtonMethod(student_id, email);
                 
             }
 
