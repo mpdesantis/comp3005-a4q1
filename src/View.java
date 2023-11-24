@@ -66,7 +66,7 @@ public class View extends JFrame {
     /* Dimensions */
 
     // Frame
-    public static final int FRAME_WIDTH = 800;
+    public static final int FRAME_WIDTH = 1000;
     public static final int FRAME_HEIGHT= 400;
 
     // DisplayPanel
@@ -137,7 +137,7 @@ public class View extends JFrame {
         displayStudentTextPane = new JTextPane();
         displayStudentTextPane.setBorder(BorderFactory.createTitledBorder("students"));
         displayStudentTextPane.setText("students...");
-        //displayStudentTextPane.setFont(new Font("Monospaced", Font.PLAIN, 12));
+        displayStudentTextPane.setFont(new Font("Arial", Font.PLAIN, 16));
         displayStudentTextPane.setBounds(0, 0, 100, 100);
         displayStudentTextPane.setPreferredSize(new Dimension(DISPLAY_PANEL_WIDTH, DISPLAY_PANEL_HEIGHT));
         displayStudentTextPane.setEditable(false);

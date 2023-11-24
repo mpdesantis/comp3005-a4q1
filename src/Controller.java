@@ -131,9 +131,10 @@ public class Controller implements ActionListener, ListSelectionListener {
                 System.out.println("deleteStudentButton clicked.");
 
                 // Get the text fields from the View boxes
+                String student_id = view.deleteStudentTextPane.getText();
                 
                 // Invoke the model's operation, which will issue the dbop
-                //model.deleteStudentButtonMethod();
+                model.deleteStudentButtonMethod(student_id);
                 
             }
 
@@ -145,7 +146,7 @@ public class Controller implements ActionListener, ListSelectionListener {
                 
                 // Note: Don't actually have to do anything here, since
                 // we always do our refreshes after any button click,
-                // as immediately below
+                // as immediately below, so leave it!
                 
             }
 
@@ -160,8 +161,6 @@ public class Controller implements ActionListener, ListSelectionListener {
         }
 
         /* Default Actions After ANY View Event */
-
-        // View Refreshes
 
     }
 

@@ -21,27 +21,15 @@ public class Model {
      * CONSTANTS
      */
 
-    public enum someEnum {
-        ONE,
-        TWO,
-        THREE
-    }
-
-    public static final int ARRAY_SIZE = 5;
-
 
     /**************************************************************************
      * INSTANCE VARIABLES
      */
 
     public DatabaseOperations dbops;
-    private ArrayList<String> modelArray;
     private ArrayList<String> studentsArray;
-    private String modelString;
-
     private String user;
     private String password;
-
 
 
     /**************************************************************************
@@ -58,13 +46,12 @@ public class Model {
 
         /* Fields */
         this.dbops = new DatabaseOperations();
-        this.modelArray = new ArrayList<String>(ARRAY_SIZE);
         this.studentsArray = new ArrayList<String>();
-        this.modelString = null;
         this.user = null;
         this.password = null;
 
-        // Get credentials here before launching GUI because I'm lazy
+        // Get credentials here before launching GUI because I'm too lazy to
+        // scratch up a dialog box in the GUI.
         Scanner scanner = new Scanner(System.in);
         System.out.print("\nUsername:\n>> ");
         user = scanner.nextLine();
@@ -118,13 +105,11 @@ public class Model {
     }
 
     public void updateStudentEmailButtonMethod(String student_id, String email) {
+
         // Debug
         System.out.println("Invoking model method for updateStudentEmailButton event...");
         System.out.println("student_id: " + student_id);
         System.out.println("email: " + email);
-
-        // Cast to int JKJK
-        //int student_id_int = Integer.parseInt(student_id);
 
         // DB Operation
         dbops.updateStudentEmail(student_id, email);
@@ -132,23 +117,15 @@ public class Model {
         return;
     }
 
-    public void deleteStudentButtonMethod(int student_id) {
+    public void deleteStudentButtonMethod(String student_id) {
 
         // Debug
-        System.out.println("Invoking model method for deleteStudentButton event...");
+        System.out.println("Invoking model method for updateStudentEmailButton event...");
+        System.out.println("student_id: " + student_id);
 
         // DB Operation
-        //dbops.deleteStudent(student_id);
+        dbops.deleteStudent(student_id);
 
-        return;
-    }
-
-    // Scratch
-    public void printArray() {
-        System.out.println("Printing modelArray...");
-        for (String s : this.modelArray) {
-            System.out.println(s.toString());
-        }
         return;
     }
 

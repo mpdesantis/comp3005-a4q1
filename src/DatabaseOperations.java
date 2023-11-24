@@ -4,10 +4,14 @@
  * NOTE: Adapted from demonstration code taken from Professor A. Orogat's GitHub
  * repository, COMP3005_DBMS, which was provided as a reference in lecture.
  *
- * Thanks for providing this! 
+ * Thanks for providing this reference. You saved me a big crawl through the
+ * documentation!!
  *
  * @author A. Orogat
- * @version 2023
+ * @version original
+ *
+ * @author Michael De Santis
+ * @version 20231123
  */
 
 import java.sql.Connection;
@@ -43,7 +47,7 @@ public class DatabaseOperations {
     }
 
     // Query all tuples in the relation, and also return a string array 
-    // for easy prints
+    // for easy prints to GUI
     public ArrayList<String> getAllStudents() {
 
         // ArrayList to hold records
@@ -122,45 +126,20 @@ public class DatabaseOperations {
         }
     }
 
-    // Delete user based on name
-    public void deleteUser(String name) {
-        String SQL = "DELETE FROM users WHERE name=?";
+    // Delete student tuple by ID
+    public void deleteStudent(String student_id) {
+        String SQL = "DELETE FROM students WHERE student_id=?";
 
         try (Connection conn = DriverManager.getConnection(url, user, password);
              PreparedStatement pstmt = conn.prepareStatement(SQL)) {
 
-            pstmt.setString(1, name);
+            pstmt.setInt(1, Integer.parseInt(student_id));
             pstmt.executeUpdate();
-            System.out.println("User deleted!");
+            System.out.println("Student deleted!");
 
         } catch (SQLException ex) {
             System.out.println(ex.getMessage());
         }
     }
 
-    /*
-    public static void main(String[] args) {
-      DatabaseOperations dbOps = new DatabaseOperations();
-      Scanner scanner = new Scanner(System.in);
-      
-      // Add a user
-      System.out.println("Would you like to add a user? (yes/no)");
-      if (scanner.nextLine().equalsIgnoreCase("yes")) {
-          dbOps.addUser("John Doe", "john@example.com");
-      }
-  
-      // Modify user's email
-      System.out.println("Would you like to modify a user's email? (yes/no)");
-      if (scanner.nextLine().equalsIgnoreCase("yes")) {
-          dbOps.modifyUserEmail("John Doe", "john.doe@example.com");
-      }
-  
-      // Delete user
-      System.out.println("Would you like to delete a user? (yes/no)");
-      if (scanner.nextLine().equalsIgnoreCase("yes")) {
-          dbOps.deleteUser("John Doe");
-      }
-      scanner.close();
-  }
-  */
 }
