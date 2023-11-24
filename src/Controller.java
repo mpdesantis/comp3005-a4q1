@@ -57,10 +57,9 @@ public class Controller implements ActionListener, ListSelectionListener {
         view.addStudentButton.addActionListener(this);
         view.updateStudentEmailButton.addActionListener(this);
         view.deleteStudentButton.addActionListener(this);
+        view.getAllStudentsButton.addActionListener(this);
 
-        /* Initial Model Methods */
-        
-        // model.someInitialMethod();
+        /* Initial Methods */
 
     }
 
@@ -138,11 +137,24 @@ public class Controller implements ActionListener, ListSelectionListener {
                 
             }
 
+            // Case: view.getAllStudentsButton (ie. refresh)
+            if (sourceJButton == view.getAllStudentsButton) {
+
+                // Debug
+                System.out.println("getAllStudentsButton clicked.");
+                
+                // Invoke the model's operation, which will issue the dbop
+                //model.getAllStudentsButtonMethod();
+
+                // Automatically refresh the display of all tuples in students
+                //view.refreshStudentsDisplay(model.getStudentsArray());
+                
+            }
+
             /* Default Routine After ANY JButton Event */
 
             // Get the current tuple strings for print
             model.refreshStudentsArray();
-            //model.printStudentsArray();
 
             // Automatically refresh the display of all tuples in students
             view.refreshStudentsDisplay(model.getStudentsArray());

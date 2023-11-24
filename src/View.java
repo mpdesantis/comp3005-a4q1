@@ -33,6 +33,7 @@ public class View extends JFrame {
     JPanel updateStudentEmailPanel;
     JPanel updateStudentIdPanel;
     JPanel deleteStudentPanel;
+    JPanel getAllStudentsPanel;
     JPanel scrollPanePanel;
 
     /* JLists */
@@ -45,6 +46,7 @@ public class View extends JFrame {
     JButton addStudentButton;
     JButton updateStudentEmailButton;
     JButton deleteStudentButton;
+    JButton getAllStudentsButton;
 
     /* JTextPanes */
     JTextPane addFirstNameTextPane;
@@ -130,22 +132,6 @@ public class View extends JFrame {
         displayPanel.setLayout(new BoxLayout(displayPanel, BoxLayout.X_AXIS));
         displayPanel.setOpaque(true);
         contentPane.add(displayPanel);
-
-        // scrollPane
-        
-
-        // Create a JPanel for the JScrollPane
-        //scrollPanePanel = new JPanel();
-        //scrollPanePanel.setBorder(BorderFactory.createTitledBorder("students)"));
-        // Create the JList with the items
-        //studentList = new JList(); // TODO
-        // Create the JScrollPane with the list inside
-        //aJScrollPane = new JScrollPane(studentList);
-        //aJScrollPane.setPreferredSize(new Dimension(FRAME_WIDTH/2, 200));
-        // Add to scrollPanePanel
-        //scrollPanePanel.add(aJScrollPane);
-        // Add to displayPanel
-        //displayPanel.add(scrollPanePanel);
 
         // displayStudentTextPane
         displayStudentTextPane = new JTextPane();
@@ -244,6 +230,17 @@ public class View extends JFrame {
         // Button
         deleteStudentButton = new JButton("Delete Student");
         deleteStudentPanel.add(deleteStudentButton);
+
+
+        // getAllStudentsPanel
+        getAllStudentsPanel = new JPanel();
+        getAllStudentsPanel.setSize(DELETE_STUDENT_PANEL_WIDTH, DELETE_STUDENT_PANEL_HEIGHT);
+        getAllStudentsPanel.setLayout(new BoxLayout(getAllStudentsPanel, BoxLayout.X_AXIS));
+        getAllStudentsPanel.setOpaque(true);
+        contentPane.add(getAllStudentsPanel);
+        // Button
+        getAllStudentsButton = new JButton("Get All Students");
+        getAllStudentsPanel.add(getAllStudentsButton);
 
 
         /* Other Stuff */

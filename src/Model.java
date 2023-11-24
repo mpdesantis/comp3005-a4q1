@@ -123,11 +123,11 @@ public class Model {
         System.out.println("student_id: " + student_id);
         System.out.println("email: " + email);
 
-        // Cast to int
-        int student_id_int = Integer.parseInt(student_id);
+        // Cast to int JKJK
+        //int student_id_int = Integer.parseInt(student_id);
 
         // DB Operation
-        //dbops.updateStudentEmail(student_id_int, email);
+        dbops.updateStudentEmail(student_id, email);
 
         return;
     }
@@ -139,6 +139,20 @@ public class Model {
 
         // DB Operation
         //dbops.deleteStudent(student_id);
+
+        return;
+    }
+
+    public void getAllStudentsButtonMethod() {
+
+        // Debug
+        System.out.println("Invoking model method for getAllStudentsButton event...");
+
+        // DB Operation
+        dbops.getAllStudents();
+
+        // Model method
+        refreshStudentsArray();
 
         return;
     }

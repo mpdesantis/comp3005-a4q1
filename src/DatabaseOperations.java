@@ -104,17 +104,17 @@ public class DatabaseOperations {
         }
     }
 
-    // Update user's email based on name
-    public void modifyUserEmail(String name, String newEmail) {
-        String SQL = "UPDATE users SET email=? WHERE name=?";
+    // Update student e-mail by ID
+    public void updateStudentEmail(String student_id, String new_email) {
+        String SQL = "UPDATE students SET email=? WHERE student_id=?";
 
         try (Connection conn = DriverManager.getConnection(url, user, password);
              PreparedStatement pstmt = conn.prepareStatement(SQL)) {
 
-            pstmt.setString(1, newEmail);
-            pstmt.setString(2, name);
+            pstmt.setString(1, new_email);
+            pstmt.setString(2, student_id);
             pstmt.executeUpdate();
-            System.out.println("User email updated!");
+            System.out.println("Student email updated!");
 
         } catch (SQLException ex) {
             System.out.println(ex.getMessage());
