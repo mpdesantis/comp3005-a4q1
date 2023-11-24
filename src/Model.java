@@ -37,6 +37,9 @@ public class Model {
     private ArrayList<String> modelArray;
     private String modelString;
 
+    private String username;
+    private String password;
+
 
 
     /**************************************************************************
@@ -54,6 +57,17 @@ public class Model {
         /* Fields */
         this.modelArray = new ArrayList<String>(ARRAY_SIZE);
         this.modelString = null;
+        this.username = null;
+        this.password = null;
+
+        // Get credentials here before launching GUI.
+        Scanner scanner = new Scanner(System.in);
+        System.out.print("\nUsername:\n>> ");
+        username = scanner.nextLine();
+        System.out.print("\nPassword:\n>> ");
+        password = scanner.nextLine();
+        System.out.println("Username: " + username + " Password: " + password);
+
 
         // Populate Array with Strings
         for (int i = 0; i < ARRAY_SIZE; i++) {
