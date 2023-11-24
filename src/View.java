@@ -18,6 +18,40 @@ import java.util.Random;
 public class View extends JFrame {
 
     /**************************************************************************
+     * GUI COMPONENTS
+     */
+
+    /* JFrame */
+    private JFrame frame;
+
+    /* JLabels. */
+
+    /* JPanels */
+    JPanel displayPanel;
+    JPanel addStudentPanel;
+    JPanel updateEmailPanel;
+    JPanel deleteStudentPanel;
+    JPanel scrollPanePanel;
+
+    /* JLists */
+    JList studentList;
+
+    /* JScrollPanes */
+    JScrollPane aJScrollPane;
+
+    /* JButtons */
+    JButton addStudentButton;
+    JButton updateEmailButton;
+    JButton deleteStudentButton;
+
+    /* JTextPanes */
+    JTextPane inputFirstNameTextPane;
+    JTextPane inputLastNameTextPane;
+    JTextPane inputEmailTextPane;
+    JTextPane inputEnrollmentDateTextPane;
+    JTextPane displayStudentTextPane;
+
+    /**************************************************************************
      * CONSTANTS
      */
 
@@ -27,20 +61,21 @@ public class View extends JFrame {
     public static final int FRAME_WIDTH = 800;
     public static final int FRAME_HEIGHT= 400;
 
-    // Panels
-    public static final int TOP_PANEL_WIDTH = FRAME_WIDTH;
-    public static final int TOP_PANEL_HEIGHT = 200;
+    // DisplayPanel
+    public static final int DISPLAY_PANEL_WIDTH = FRAME_WIDTH;
+    public static final int DISPLAY_PANEL_HEIGHT = FRAME_HEIGHT/2;
 
-    public static final int BOTTOM_PANEL_WIDTH = FRAME_WIDTH;
-    public static final int BOTTOM_PANEL_HEIGHT = 200;
+    // AddStudentPanel
+    public static final int ADD_STUDENT_PANEL_WIDTH = FRAME_WIDTH;
+    public static final int ADD_STUDENT_PANEL_HEIGHT = FRAME_HEIGHT * (1/6);
 
-    public static final int BUTTON_PANEL_WIDTH = BOTTOM_PANEL_WIDTH/2;
-    public static final int BUTTON_PANEL_HEIGHT = 200;
+    // UpdateEmailPanel
+    public static final int UPDATE_EMAIL_PANEL_WIDTH = FRAME_WIDTH;
+    public static final int UPDATE_EMAIL_PANEL_HEIGHT = FRAME_HEIGHT * (1/6);
 
-    // Dialogs
-    public static final int DIALOG_WIDTH = 400;
-    public static final int DIALOG_HEIGHT= 400;
-
+    // DeleteStudentPanel
+    public static final int DELETE_STUDENT_PANEL_WIDTH = FRAME_WIDTH;
+    public static final int DELETE_STUDENT_PANEL_HEIGHT = FRAME_HEIGHT * (1/6);
 
     /**************************************************************************
      * INSTANCE VARIABLES
@@ -49,25 +84,6 @@ public class View extends JFrame {
     /* Model */
 
     private Model model;
-
-    /* GUI Components */
-
-    // JPanels
-    JPanel topPanel;
-    JPanel bottomPanel;
-    JPanel buttonPanel;
-    
-    // JButtons
-    JButton oneButton;
-    JButton twoButton;
-    
-    // JDialogs
-    JDialog helloDialog;
-    
-    // JLabels
-
-    // JTextPanes
-    JTextPane aJTextPane;
 
 
     /**************************************************************************
@@ -81,7 +97,7 @@ public class View extends JFrame {
      * @param model The model for this MVC pattern.
      *
      * @author Michael De Santis
-     * @version 20231118
+     * @version 20231123
      */
     public View(Model model) {
         
@@ -91,7 +107,7 @@ public class View extends JFrame {
         /* GUI Components */
 
         // Frame
-        this.setTitle("Midterm!");
+        this.setTitle("StudentDB");
         this.setMinimumSize(new Dimension(FRAME_WIDTH, FRAME_HEIGHT));
         this.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         this.setResizable(false);
@@ -101,72 +117,67 @@ public class View extends JFrame {
         contentPane.setSize(FRAME_WIDTH, FRAME_HEIGHT);
         contentPane.setLayout(new BoxLayout(contentPane, BoxLayout.Y_AXIS));
 
-        // Opening JDialog
-        helloDialog = new JDialog(this, "Hello!", true);
-        helloDialog.setSize(DIALOG_WIDTH, DIALOG_HEIGHT);
-        JLabel helloLabel = new JLabel("Welcome to the program! Please click OK to continue.");
-        JButton helloOkButton = new JButton("OK");
-        helloDialog.setBackground(Color.black);
-        helloDialog.setForeground(Color.yellow);
-        helloDialog.setLayout(new GridLayout(2, 1));
-        helloDialog.add(helloLabel);
-        helloDialog.add(helloOkButton);
-        // Add the listeners inline, since we want this up before Controller
-        helloOkButton.addActionListener(new ActionListener()
-        {
-            public void actionPerformed(ActionEvent e)
-            {
-                /* Model actions, if required */
-                // N/A
+        // displayPanel
+        displayPanel = new JPanel();
+        displayPanel.setSize(DISPLAY_PANEL_WIDTH, DISPLAY_PANEL_HEIGHT);
+        displayPanel.setBackground(Color.black);
+        displayPanel.setLayout(new BoxLayout(displayPanel, BoxLayout.X_AXIS));
+        displayPanel.setOpaque(true);
+        contentPane.add(displayPanel);
 
-                /* View actions, if required */
+        // Create a JPanel for the JScrollPane
+        scrollPanePanel = new JPanel();
+        scrollPanePanel.setBorder(BorderFactory.createTitledBorder("Students (click to select)"));
+        // Create the JList with the items
+        studentList = new JList(); // TODO
+        // Create the JScrollPane with the list inside
+        aJScrollPane = new JScrollPane(studentList);
+        aJScrollPane.setPreferredSize(new Dimension(FRAME_WIDTH/2, 200));
+        // Add to scrollPanePanel
+        scrollPanePanel.add(aJScrollPane);
+        // Add to displayPanel
+        displayPanel.add(scrollPanePanel);
 
-                helloDialog.dispose();
-            }
-        });
-        // Modal, therefore blocking once visible
-        helloDialog.setVisible(true);
-        // Proceed once disposed of!
+        // displayStudentTextPane
+        displayStudentTextPane = new JTextPane();
+        displayStudentTextPane.setBorder(BorderFactory.createTitledBorder("Selected Student"));
+        displayStudentTextPane.setText("Select a student.");
+        displayStudentTextPane.setFont(new Font("Monospaced", Font.PLAIN, 24));
+        displayStudentTextPane.setBounds(0, 0, 100, 100);
+        displayStudentTextPane.setPreferredSize(new Dimension(FRAME_WIDTH/2, 40));
+        displayStudentTextPane.setEditable(false);
+        displayPanel.add(displayStudentTextPane);
 
-        // Top Panel
-        topPanel = new JPanel();
-        topPanel.setSize(TOP_PANEL_WIDTH, TOP_PANEL_HEIGHT);
-        topPanel.setBackground(Color.black);
-        topPanel.setBorder(new LineBorder(Color.BLACK, 10, false));
-        topPanel.setLayout(new BoxLayout(topPanel, BoxLayout.Y_AXIS));
-        topPanel.setOpaque(true);
-        contentPane.add(topPanel);
+        // addStudentPanel
+        addStudentPanel = new JPanel();
+        addStudentPanel.setSize(ADD_STUDENT_PANEL_WIDTH, ADD_STUDENT_PANEL_HEIGHT);
+        addStudentPanel.setBackground(Color.black);
+        addStudentPanel.setLayout(new BoxLayout(addStudentPanel, BoxLayout.Y_AXIS));
+        addStudentPanel.setOpaque(true);
+        contentPane.add(addStudentPanel);
+        addStudentButton = new JButton("Add Student");
+        addStudentPanel.add(addStudentButton);
 
-        // JTextPane for Top Panel
-        aJTextPane = new JTextPane(); 
-        aJTextPane.setText("TEXT PANE!");
-        aJTextPane.setEditable(false);
-        aJTextPane.setFont(new Font("Monospaced", Font.PLAIN, 72));
-        topPanel.add(aJTextPane);
+        // updateEmailPanel
+        updateEmailPanel = new JPanel();
+        updateEmailPanel.setSize(UPDATE_EMAIL_PANEL_WIDTH, UPDATE_EMAIL_PANEL_HEIGHT);
+        updateEmailPanel.setBackground(Color.black);
+        updateEmailPanel.setLayout(new BoxLayout(updateEmailPanel, BoxLayout.Y_AXIS));
+        updateEmailPanel.setOpaque(true);
+        contentPane.add(updateEmailPanel);
+        updateEmailButton = new JButton("Update e-mail");
+        updateEmailPanel.add(updateEmailButton);
 
-        // Bottom Panel
-        bottomPanel = new JPanel();
-        bottomPanel.setSize(BOTTOM_PANEL_WIDTH, BOTTOM_PANEL_HEIGHT);
-        bottomPanel.setBackground(Color.black);
-        bottomPanel.setBorder(new LineBorder(Color.BLACK, 10, false));
-        bottomPanel.setLayout(new GridLayout(1, 2));
-        bottomPanel.setOpaque(true);
-        contentPane.add(bottomPanel);
+        // deleteStudentPanel
+        deleteStudentPanel = new JPanel();
+        deleteStudentPanel.setSize(DELETE_STUDENT_PANEL_WIDTH, DELETE_STUDENT_PANEL_HEIGHT);
+        deleteStudentPanel.setBackground(Color.black);
+        deleteStudentPanel.setLayout(new BoxLayout(deleteStudentPanel, BoxLayout.Y_AXIS));
+        deleteStudentPanel.setOpaque(true);
+        contentPane.add(deleteStudentPanel);
+        deleteStudentButton = new JButton("Delete Student");
+        deleteStudentPanel.add(deleteStudentButton);
 
-        // Button Panel
-        buttonPanel = new JPanel();
-        buttonPanel.setSize(BUTTON_PANEL_WIDTH, BUTTON_PANEL_HEIGHT);
-        buttonPanel.setBackground(Color.yellow);
-        buttonPanel.setBorder(new LineBorder(Color.BLACK, 10, false));
-        buttonPanel.setLayout(new BoxLayout(buttonPanel, BoxLayout.X_AXIS));
-        buttonPanel.setOpaque(true);
-        bottomPanel.add(buttonPanel);
-
-        // Some Buttons
-        oneButton = new JButton("oneButton");
-        buttonPanel.add(oneButton);        
-        twoButton = new JButton("twoButton");
-        buttonPanel.add(twoButton);        
 
         /* Other Stuff */
 

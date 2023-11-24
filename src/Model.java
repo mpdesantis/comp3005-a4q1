@@ -66,14 +66,20 @@ public class Model {
      * METHODS
      */
 
-    public void oneButtonMethod() {
-        System.out.println("Invoking model method for oneButton event...");
+    public void addStudentButtonMethod() {
+        System.out.println("Invoking model method for addStudentButton event...");
         // TODO
         return;
     }
 
-    public void twoButtonMethod() {
-        System.out.println("Invoking model method for twoButton event...");
+    public void updateEmailButtonMethod() {
+        System.out.println("Invoking model method for updateEmailButton event...");
+        // TODO
+        return;
+    }
+
+    public void deleteStudentButtonMethod() {
+        System.out.println("Invoking model method for deleteStudentButton event...");
         // TODO
         return;
     }
