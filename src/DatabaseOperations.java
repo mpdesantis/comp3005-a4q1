@@ -1,10 +1,10 @@
 /**
  * Java interface to PostgreSQL.
  *
- * Adapted from demonstration code taken from Professor A. Orogat's GitHub 
+ * NOTE: Adapted from demonstration code taken from Professor A. Orogat's GitHub
  * repository, COMP3005_DBMS, which was provided as a reference in lecture.
  *
- * Thanks for providing this!
+ * Thanks for providing this! 
  *
  * @author A. Orogat
  * @version 2023
@@ -42,7 +42,8 @@ public class DatabaseOperations {
         System.out.println("Access credentials updated for DB " + url + ".");
     }
 
-    // Print all tuples
+    // Query all tuples in the relation, and also return a string array 
+    // for easy prints
     public ArrayList<String> getAllStudents() {
 
         // ArrayList to hold records
@@ -68,7 +69,7 @@ public class DatabaseOperations {
                 tupleString += ", enrollment_date: " + rs.getString("enrollment_date");
 
                 // Console print
-                System.out.println(tupleString);
+                //System.out.println(tupleString);
 
                 // Add to array for return
                 resultArray.add(tupleString);
@@ -83,7 +84,7 @@ public class DatabaseOperations {
         return resultArray;
     }
 
-    // Add a user
+    // Add a student to the relation
     public void addStudent(String first_name, String last_name, String email, String enrollment_date) {
         String SQL = "INSERT INTO students(first_name,last_name,email,enrollment_date) VALUES(?,?,?,?::date)";
 
@@ -112,9 +113,9 @@ public class DatabaseOperations {
              PreparedStatement pstmt = conn.prepareStatement(SQL)) {
 
             pstmt.setString(1, new_email);
-            pstmt.setString(2, student_id);
+            pstmt.setInt(2, Integer.parseInt(student_id));
             pstmt.executeUpdate();
-            System.out.println("Student email updated!");
+            System.out.println("Student e-mail updated!");
 
         } catch (SQLException ex) {
             System.out.println(ex.getMessage());
