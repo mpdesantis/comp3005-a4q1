@@ -12,7 +12,7 @@
 #
 ###############################################################################
 # Author: Michael De Santis
-# Date: YYYYMMDD
+# Last Edited: 2023/11/23
 ###############################################################################
 
 
@@ -25,8 +25,9 @@ SOURCE_DIR = ${PROJECT_DIR}/src/
 MANIFEST_DIR = ${PROJECT_DIR}
 MANIFEST = ${MANIFEST_DIR}/MAKE-MANIFEST.MF
 
-JAVA_FILES := Main.java SampleClass.java # NewClass.java
-CLASS_FILES:= Main.class SampleClass.class #NewClass.class
+JAVA_FILES := Controller.java Main.java Model.java View.java
+CLASS_FILES:= Controller.class Main.class Model.class View.class
+
 JAR = ${OUT_DIR}/main.jar
 JAVA_FLAGS := -g -d ${OUT_DIR} --source-path ${SOURCE_DIR}
 

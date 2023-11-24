@@ -1,2 +1,4 @@
+Controller.java
 Main.java
-SampleClass.java
+Model.java
+View.java
