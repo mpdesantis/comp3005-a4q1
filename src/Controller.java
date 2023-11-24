@@ -143,11 +143,9 @@ public class Controller implements ActionListener, ListSelectionListener {
                 // Debug
                 System.out.println("getAllStudentsButton clicked.");
                 
-                // Invoke the model's operation, which will issue the dbop
-                //model.getAllStudentsButtonMethod();
-
-                // Automatically refresh the display of all tuples in students
-                //view.refreshStudentsDisplay(model.getStudentsArray());
+                // Note: Don't actually have to do anything here, since
+                // we always do our refreshes after any button click,
+                // as immediately below
                 
             }
 

@@ -143,20 +143,7 @@ public class Model {
         return;
     }
 
-    public void getAllStudentsButtonMethod() {
-
-        // Debug
-        System.out.println("Invoking model method for getAllStudentsButton event...");
-
-        // DB Operation
-        dbops.getAllStudents();
-
-        // Model method
-        refreshStudentsArray();
-
-        return;
-    }
-
+    // Scratch
     public void printArray() {
         System.out.println("Printing modelArray...");
         for (String s : this.modelArray) {
