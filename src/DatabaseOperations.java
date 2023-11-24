@@ -53,7 +53,7 @@ public class DatabaseOperations {
         // ArrayList to hold records
         ArrayList<String> resultArray = new ArrayList<String>();
 
-        String SQL = "SELECT * FROM students";
+        String SQL = "SELECT * FROM students ORDER BY student_id ASC";
         ResultSet rs;
 
         try (Connection conn = DriverManager.getConnection(url, user, password);
