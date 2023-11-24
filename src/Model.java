@@ -34,10 +34,11 @@ public class Model {
      * INSTANCE VARIABLES
      */
 
+    public DatabaseOperations dbops;
     private ArrayList<String> modelArray;
     private String modelString;
 
-    private String username;
+    private String user;
     private String password;
 
 
@@ -55,24 +56,23 @@ public class Model {
     public Model() {
 
         /* Fields */
+        this.dbops = new DatabaseOperations();
         this.modelArray = new ArrayList<String>(ARRAY_SIZE);
         this.modelString = null;
-        this.username = null;
+        this.user = null;
         this.password = null;
 
-        // Get credentials here before launching GUI.
+        // Get credentials here before launching GUI because I'm lazy
         Scanner scanner = new Scanner(System.in);
         System.out.print("\nUsername:\n>> ");
-        username = scanner.nextLine();
+        user = scanner.nextLine();
         System.out.print("\nPassword:\n>> ");
         password = scanner.nextLine();
-        System.out.println("Username: " + username + " Password: " + password);
+        System.out.println("Username: " + user + " Password: " + password);
 
-
-        // Populate Array with Strings
-        for (int i = 0; i < ARRAY_SIZE; i++) {
-            modelArray.add("Element[" + i + "]");
-        }
+        // Give credentials to dbops
+        dbops.setCredentials(user, password);
+        
 
     }
 
@@ -80,21 +80,40 @@ public class Model {
      * METHODS
      */
 
-    public void addStudentButtonMethod() {
+    public void addStudentButtonMethod(String first_name, String last_name, String email, String enrollment_date) {
+
+        // Debug
         System.out.println("Invoking model method for addStudentButton event...");
-        // TODO
+        System.out.println("first_name: " + first_name);
+        System.out.println("last_name: " + last_name);
+        System.out.println("email: " + email);
+        System.out.println("enrollment_date: " + enrollment_date);
+        System.out.println();
+
+        // DB Operation
+        dbops.addStudent(first_name, last_name, email, enrollment_date);
+
         return;
     }
 
-    public void updateEmailButtonMethod() {
-        System.out.println("Invoking model method for updateEmailButton event...");
-        // TODO
+    public void updateStudentEmailButtonMethod(int student_id) {
+        // Debug
+        System.out.println("Invoking model method for updateStudentEmailButton event...");
+
+        // DB Operation
+        //dbops.updateStudentEmail(student_id, email);
+
         return;
     }
 
-    public void deleteStudentButtonMethod() {
+    public void deleteStudentButtonMethod(int student_id) {
+
+        // Debug
         System.out.println("Invoking model method for deleteStudentButton event...");
-        // TODO
+
+        // DB Operation
+        //dbops.deleteStudent(student_id);
+
         return;
     }
 

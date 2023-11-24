@@ -56,7 +56,7 @@ public class Controller implements ActionListener, ListSelectionListener {
         /* Register Listeners on View Components */
 
         view.addStudentButton.addActionListener(this);
-        view.updateEmailButton.addActionListener(this);
+        view.updateStudentEmailButton.addActionListener(this);
         view.deleteStudentButton.addActionListener(this);
 
         view.studentList.addListSelectionListener(this);
@@ -102,30 +102,27 @@ public class Controller implements ActionListener, ListSelectionListener {
                 // Debug
                 System.out.println("addStudentButton clicked.");
 
-                /* Model Methods */
-                // DB
-                System.out.println("DEBUG: instantiate dbops");
-                DatabaseOperations dbops = new DatabaseOperations();
-                dbops.addUser("Gary Lasagna", "gary@lasagna.com");
+                // Get the text fields from the View boxes
+                String first_name = view.addFirstNameTextPane.getText();
+                String last_name = view.addLastNameTextPane.getText();
+                String email = view.addEmailTextPane.getText();
+                String enrollment_date = view.addEnrollmentDateTextPane.getText();
 
-                //model.someMethod();
-
-
-                model.addStudentButtonMethod();
+                // Invoke the model's operation, which will issue the dbop
+                model.addStudentButtonMethod(first_name, last_name, email, enrollment_date);
                 
             }
 
-            // Case: view.updateEmailButton
-            if (sourceJButton == view.updateEmailButton) {
+            // Case: view.updateStudentEmailButton
+            if (sourceJButton == view.updateStudentEmailButton) {
 
                 // Debug
-                System.out.println("updateEmailButton clicked.");
+                System.out.println("updateStudentEmailButton clicked.");
 
-                /* Model Methods */
-
-                //model.someMethod();
-
-                model.updateEmailButtonMethod();
+                // Get the text fields from the View boxes
+                
+                // Invoke the model's operation, which will issue the dbop
+                //model.updateStudentEmailButtonMethod();
                 
             }
 
@@ -135,18 +132,20 @@ public class Controller implements ActionListener, ListSelectionListener {
                 // Debug
                 System.out.println("deleteStudentButton clicked.");
 
-                /* Model Methods */
-
-                //model.someMethod();
-
-                model.deleteStudentButtonMethod();
+                // Get the text fields from the View boxes
+                
+                // Invoke the model's operation, which will issue the dbop
+                //model.deleteStudentButtonMethod();
                 
             }
 
             /* Default Routine After ANY JButton Event */
-            
-            // N/A
 
+            // Automatically refresh the display of all tuples in students
+            // TODO
+
+
+            
         }
 
         /* Default Actions After ANY View Event */

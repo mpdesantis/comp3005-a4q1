@@ -30,7 +30,7 @@ public class View extends JFrame {
     /* JPanels */
     JPanel displayPanel;
     JPanel addStudentPanel;
-    JPanel updateEmailPanel;
+    JPanel updateStudentEmailPanel;
     JPanel deleteStudentPanel;
     JPanel scrollPanePanel;
 
@@ -42,7 +42,7 @@ public class View extends JFrame {
 
     /* JButtons */
     JButton addStudentButton;
-    JButton updateEmailButton;
+    JButton updateStudentEmailButton;
     JButton deleteStudentButton;
 
     /* JTextPanes */
@@ -51,7 +51,7 @@ public class View extends JFrame {
     JTextPane addEmailTextPane;
     JTextPane addEnrollmentDateTextPane;
     JTextPane displayStudentTextPane;
-    JTextPane updateEmailTextPane;
+    JTextPane updateStudentEmailTextPane;
     JTextPane deleteStudentTextPane;
 
     /**************************************************************************
@@ -194,23 +194,23 @@ public class View extends JFrame {
         addStudentButton = new JButton("Add Student");
         addStudentPanel.add(addStudentButton);
 
-        // updateEmailPanel
-        updateEmailPanel = new JPanel();
-        updateEmailPanel.setSize(UPDATE_EMAIL_PANEL_WIDTH, UPDATE_EMAIL_PANEL_HEIGHT);
-        updateEmailPanel.setLayout(new BoxLayout(updateEmailPanel, BoxLayout.X_AXIS));
-        updateEmailPanel.setOpaque(true);
-        contentPane.add(updateEmailPanel);
+        // updateStudentEmailPanel
+        updateStudentEmailPanel = new JPanel();
+        updateStudentEmailPanel.setSize(UPDATE_EMAIL_PANEL_WIDTH, UPDATE_EMAIL_PANEL_HEIGHT);
+        updateStudentEmailPanel.setLayout(new BoxLayout(updateStudentEmailPanel, BoxLayout.X_AXIS));
+        updateStudentEmailPanel.setOpaque(true);
+        contentPane.add(updateStudentEmailPanel);
         // Create text entry boxes for required adds
-        updateEmailTextPane = new JTextPane();
-        updateEmailTextPane.setBorder(BorderFactory.createTitledBorder("e-mail"));
-        updateEmailTextPane.setText("e-mail");
-        updateEmailTextPane.setBounds(0, 0, 100, 100);
-        updateEmailTextPane.setPreferredSize(new Dimension(FRAME_WIDTH/5, 40));
-        updateEmailTextPane.setEditable(true);
-        updateEmailPanel.add(updateEmailTextPane);
+        updateStudentEmailTextPane = new JTextPane();
+        updateStudentEmailTextPane.setBorder(BorderFactory.createTitledBorder("e-mail"));
+        updateStudentEmailTextPane.setText("e-mail");
+        updateStudentEmailTextPane.setBounds(0, 0, 100, 100);
+        updateStudentEmailTextPane.setPreferredSize(new Dimension(FRAME_WIDTH/5, 40));
+        updateStudentEmailTextPane.setEditable(true);
+        updateStudentEmailPanel.add(updateStudentEmailTextPane);
         // Button
-        updateEmailButton = new JButton("Update e-mail");
-        updateEmailPanel.add(updateEmailButton);
+        updateStudentEmailButton = new JButton("Update e-mail");
+        updateStudentEmailPanel.add(updateStudentEmailButton);
 
         // deleteStudentPanel
         deleteStudentPanel = new JPanel();
