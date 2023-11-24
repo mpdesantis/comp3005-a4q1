@@ -22,6 +22,7 @@
 PROJECT_DIR = ${PWD}
 OUT_DIR = ${PROJECT_DIR}/makeout/
 SOURCE_DIR = ${PROJECT_DIR}/src/
+LIB_DIR = ${PROJECT_DIR}/lib/
 MANIFEST_DIR = ${PROJECT_DIR}
 MANIFEST = ${MANIFEST_DIR}/MAKE-MANIFEST.MF
 
@@ -29,7 +30,7 @@ JAVA_FILES := Controller.java Main.java Model.java View.java
 CLASS_FILES:= Controller.class Main.class Model.class View.class
 
 JAR = ${OUT_DIR}/main.jar
-JAVA_FLAGS := -g -d ${OUT_DIR} --source-path ${SOURCE_DIR}
+JAVA_FLAGS := -g -d ${OUT_DIR} --source-path ${SOURCE_DIR} --class-path ${LIB_DIR}
 
 SOURCE = $(addprefix ${SOURCE_DIR},${JAVA_FILES})
 CLASSES = $(addprefix ${OUT_DIR},${CLASS_FILES})
