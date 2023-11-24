@@ -103,8 +103,13 @@ public class Controller implements ActionListener, ListSelectionListener {
                 System.out.println("addStudentButton clicked.");
 
                 /* Model Methods */
+                // DB
+                System.out.println("DEBUG: instantiate dbops");
+                DatabaseOperations dbops = new DatabaseOperations();
+                dbops.addUser("Gary Lasagna", "gary@lasagna.com");
 
                 //model.someMethod();
+
 
                 model.addStudentButtonMethod();
                 
