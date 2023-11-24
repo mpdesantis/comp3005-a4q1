@@ -70,7 +70,10 @@ Output generated from `make` rules defined in this directory's `Makefile`. Usefu
 ### `sources.txt`
 List of Java source files in `src/` directory. Useful for manual compilation instructions.
 
-### `src`
+### `sql/`
+PostgreSQL Data Definition Language and Data Manipulation Language files for creating an dpopulating a sample instance of the relational database used in this project.
+
+### `src/`
 Java source files.
 
 <a id="description"></a>
