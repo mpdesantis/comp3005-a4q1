@@ -25,6 +25,7 @@ public class View extends JFrame {
     private JFrame frame;
 
     /* JLabels. */
+    JLabel addStudentLabel;
 
     /* JPanels */
     JPanel displayPanel;
@@ -45,11 +46,13 @@ public class View extends JFrame {
     JButton deleteStudentButton;
 
     /* JTextPanes */
-    JTextPane inputFirstNameTextPane;
-    JTextPane inputLastNameTextPane;
-    JTextPane inputEmailTextPane;
-    JTextPane inputEnrollmentDateTextPane;
+    JTextPane addFirstNameTextPane;
+    JTextPane addLastNameTextPane;
+    JTextPane addEmailTextPane;
+    JTextPane addEnrollmentDateTextPane;
     JTextPane displayStudentTextPane;
+    JTextPane updateEmailTextPane;
+    JTextPane deleteStudentTextPane;
 
     /**************************************************************************
      * CONSTANTS
@@ -151,30 +154,79 @@ public class View extends JFrame {
         // addStudentPanel
         addStudentPanel = new JPanel();
         addStudentPanel.setSize(ADD_STUDENT_PANEL_WIDTH, ADD_STUDENT_PANEL_HEIGHT);
-        addStudentPanel.setBackground(Color.black);
-        addStudentPanel.setLayout(new BoxLayout(addStudentPanel, BoxLayout.Y_AXIS));
+        addStudentPanel.setLayout(new BoxLayout(addStudentPanel, BoxLayout.X_AXIS));
         addStudentPanel.setOpaque(true);
         contentPane.add(addStudentPanel);
+        // Create text entry boxes for required adds
+        // FirstName
+        addFirstNameTextPane = new JTextPane();
+        addFirstNameTextPane.setBorder(BorderFactory.createTitledBorder("First Name"));
+        addFirstNameTextPane.setText("First Name");
+        addFirstNameTextPane.setBounds(0, 0, 100, 100);
+        addFirstNameTextPane.setPreferredSize(new Dimension(FRAME_WIDTH/5, 40));
+        addFirstNameTextPane.setEditable(true);
+        addStudentPanel.add(addFirstNameTextPane);
+        // LastName
+        addLastNameTextPane = new JTextPane();
+        addLastNameTextPane.setBorder(BorderFactory.createTitledBorder("Last Name"));
+        addLastNameTextPane.setText("Last Name");
+        addLastNameTextPane.setBounds(0, 0, 100, 100);
+        addLastNameTextPane.setPreferredSize(new Dimension(FRAME_WIDTH/5, 40));
+        addLastNameTextPane.setEditable(true);
+        addStudentPanel.add(addLastNameTextPane);
+        // Email
+        addEmailTextPane = new JTextPane();
+        addEmailTextPane.setBorder(BorderFactory.createTitledBorder("e-mail"));
+        addEmailTextPane.setText("e-mail");
+        addEmailTextPane.setBounds(0, 0, 100, 100);
+        addEmailTextPane.setPreferredSize(new Dimension(FRAME_WIDTH/5, 40));
+        addEmailTextPane.setEditable(true);
+        addStudentPanel.add(addEmailTextPane);
+        // EnrollmentDate
+        addEnrollmentDateTextPane = new JTextPane();
+        addEnrollmentDateTextPane.setBorder(BorderFactory.createTitledBorder("Enrollment Date"));
+        addEnrollmentDateTextPane.setText("YYYY-MM-DD");
+        addEnrollmentDateTextPane.setBounds(0, 0, 100, 100);
+        addEnrollmentDateTextPane.setPreferredSize(new Dimension(FRAME_WIDTH/5, 40));
+        addEnrollmentDateTextPane.setEditable(true);
+        addStudentPanel.add(addEnrollmentDateTextPane);
+        // addStudentButton
         addStudentButton = new JButton("Add Student");
         addStudentPanel.add(addStudentButton);
 
         // updateEmailPanel
         updateEmailPanel = new JPanel();
         updateEmailPanel.setSize(UPDATE_EMAIL_PANEL_WIDTH, UPDATE_EMAIL_PANEL_HEIGHT);
-        updateEmailPanel.setBackground(Color.black);
-        updateEmailPanel.setLayout(new BoxLayout(updateEmailPanel, BoxLayout.Y_AXIS));
+        updateEmailPanel.setLayout(new BoxLayout(updateEmailPanel, BoxLayout.X_AXIS));
         updateEmailPanel.setOpaque(true);
         contentPane.add(updateEmailPanel);
+        // Create text entry boxes for required adds
+        updateEmailTextPane = new JTextPane();
+        updateEmailTextPane.setBorder(BorderFactory.createTitledBorder("e-mail"));
+        updateEmailTextPane.setText("e-mail");
+        updateEmailTextPane.setBounds(0, 0, 100, 100);
+        updateEmailTextPane.setPreferredSize(new Dimension(FRAME_WIDTH/5, 40));
+        updateEmailTextPane.setEditable(true);
+        updateEmailPanel.add(updateEmailTextPane);
+        // Button
         updateEmailButton = new JButton("Update e-mail");
         updateEmailPanel.add(updateEmailButton);
 
         // deleteStudentPanel
         deleteStudentPanel = new JPanel();
         deleteStudentPanel.setSize(DELETE_STUDENT_PANEL_WIDTH, DELETE_STUDENT_PANEL_HEIGHT);
-        deleteStudentPanel.setBackground(Color.black);
-        deleteStudentPanel.setLayout(new BoxLayout(deleteStudentPanel, BoxLayout.Y_AXIS));
+        deleteStudentPanel.setLayout(new BoxLayout(deleteStudentPanel, BoxLayout.X_AXIS));
         deleteStudentPanel.setOpaque(true);
         contentPane.add(deleteStudentPanel);
+        // Create text entry boxes for required fields
+        deleteStudentTextPane = new JTextPane();
+        deleteStudentTextPane.setBorder(BorderFactory.createTitledBorder("Student ID"));
+        deleteStudentTextPane.setText("Student ID");
+        deleteStudentTextPane.setBounds(0, 0, 100, 100);
+        deleteStudentTextPane.setPreferredSize(new Dimension(FRAME_WIDTH/5, 40));
+        deleteStudentTextPane.setEditable(true);
+        deleteStudentPanel.add(deleteStudentTextPane);
+        // Button
         deleteStudentButton = new JButton("Delete Student");
         deleteStudentPanel.add(deleteStudentButton);
 
