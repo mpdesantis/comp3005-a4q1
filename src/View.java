@@ -66,7 +66,7 @@ public class View extends JFrame {
     /* Dimensions */
 
     // Frame
-    public static final int FRAME_WIDTH = 1000;
+    public static final int FRAME_WIDTH = 1200;
     public static final int FRAME_HEIGHT= 400;
 
     // DisplayPanel
@@ -84,6 +84,14 @@ public class View extends JFrame {
     // DeleteStudentPanel
     public static final int DELETE_STUDENT_PANEL_WIDTH = FRAME_WIDTH;
     public static final int DELETE_STUDENT_PANEL_HEIGHT = FRAME_HEIGHT * (1/6);
+
+    // DeleteStudentPanel
+    public static final int GET_ALL_STUDENTS_PANEL_WIDTH = FRAME_WIDTH;
+    public static final int GET_ALL_STUDENTS_PANEL_HEIGHT = FRAME_HEIGHT * (1/6);
+
+    /* Fonts */
+
+    public final Font DEFAULT_FONT = (new Font("Arial", Font.BOLD, 16));
 
     /**************************************************************************
      * INSTANCE VARIABLES
@@ -137,7 +145,7 @@ public class View extends JFrame {
         displayStudentTextPane = new JTextPane();
         displayStudentTextPane.setBorder(BorderFactory.createTitledBorder("students"));
         displayStudentTextPane.setText("students...");
-        displayStudentTextPane.setFont(new Font("Arial", Font.PLAIN, 16));
+        displayStudentTextPane.setFont(DEFAULT_FONT);
         displayStudentTextPane.setBounds(0, 0, 100, 100);
         displayStudentTextPane.setPreferredSize(new Dimension(DISPLAY_PANEL_WIDTH, DISPLAY_PANEL_HEIGHT));
         displayStudentTextPane.setEditable(false);
@@ -154,6 +162,7 @@ public class View extends JFrame {
         addFirstNameTextPane = new JTextPane();
         addFirstNameTextPane.setBorder(BorderFactory.createTitledBorder("First Name"));
         addFirstNameTextPane.setText("First Name");
+        addFirstNameTextPane.setFont(DEFAULT_FONT);
         addFirstNameTextPane.setBounds(0, 0, 100, 100);
         addFirstNameTextPane.setPreferredSize(new Dimension(FRAME_WIDTH/5, 40));
         addFirstNameTextPane.setEditable(true);
@@ -162,6 +171,7 @@ public class View extends JFrame {
         addLastNameTextPane = new JTextPane();
         addLastNameTextPane.setBorder(BorderFactory.createTitledBorder("Last Name"));
         addLastNameTextPane.setText("Last Name");
+        addLastNameTextPane.setFont(DEFAULT_FONT);
         addLastNameTextPane.setBounds(0, 0, 100, 100);
         addLastNameTextPane.setPreferredSize(new Dimension(FRAME_WIDTH/5, 40));
         addLastNameTextPane.setEditable(true);
@@ -170,6 +180,7 @@ public class View extends JFrame {
         addEmailTextPane = new JTextPane();
         addEmailTextPane.setBorder(BorderFactory.createTitledBorder("e-mail"));
         addEmailTextPane.setText("e-mail");
+        addEmailTextPane.setFont(DEFAULT_FONT);
         addEmailTextPane.setBounds(0, 0, 100, 100);
         addEmailTextPane.setPreferredSize(new Dimension(FRAME_WIDTH/5, 40));
         addEmailTextPane.setEditable(true);
@@ -178,6 +189,7 @@ public class View extends JFrame {
         addEnrollmentDateTextPane = new JTextPane();
         addEnrollmentDateTextPane.setBorder(BorderFactory.createTitledBorder("Enrollment Date"));
         addEnrollmentDateTextPane.setText("YYYY-MM-DD");
+        addEnrollmentDateTextPane.setFont(DEFAULT_FONT);
         addEnrollmentDateTextPane.setBounds(0, 0, 100, 100);
         addEnrollmentDateTextPane.setPreferredSize(new Dimension(FRAME_WIDTH/5, 40));
         addEnrollmentDateTextPane.setEditable(true);
@@ -197,6 +209,7 @@ public class View extends JFrame {
         updateStudentIdTextPane = new JTextPane();
         updateStudentIdTextPane.setBorder(BorderFactory.createTitledBorder("Student ID"));
         updateStudentIdTextPane.setText("ID");
+        updateStudentIdTextPane.setFont(DEFAULT_FONT);
         updateStudentIdTextPane.setBounds(0, 0, 100, 100);
         updateStudentIdTextPane.setPreferredSize(new Dimension(FRAME_WIDTH/5, 40));
         updateStudentIdTextPane.setEditable(true);
@@ -205,6 +218,7 @@ public class View extends JFrame {
         updateStudentEmailTextPane = new JTextPane();
         updateStudentEmailTextPane.setBorder(BorderFactory.createTitledBorder("New e-mail"));
         updateStudentEmailTextPane.setText("e-mail");
+        updateStudentEmailTextPane.setFont(DEFAULT_FONT);
         updateStudentEmailTextPane.setBounds(0, 0, 100, 100);
         updateStudentEmailTextPane.setPreferredSize(new Dimension(FRAME_WIDTH/5, 40));
         updateStudentEmailTextPane.setEditable(true);
@@ -222,7 +236,8 @@ public class View extends JFrame {
         // Create text entry boxes for required fields
         deleteStudentTextPane = new JTextPane();
         deleteStudentTextPane.setBorder(BorderFactory.createTitledBorder("Student ID"));
-        deleteStudentTextPane.setText("Student ID");
+        deleteStudentTextPane.setText("ID");
+        deleteStudentTextPane.setFont(DEFAULT_FONT);
         deleteStudentTextPane.setBounds(0, 0, 100, 100);
         deleteStudentTextPane.setPreferredSize(new Dimension(FRAME_WIDTH/5, 40));
         deleteStudentTextPane.setEditable(true);
@@ -234,7 +249,7 @@ public class View extends JFrame {
 
         // getAllStudentsPanel
         getAllStudentsPanel = new JPanel();
-        getAllStudentsPanel.setSize(DELETE_STUDENT_PANEL_WIDTH, DELETE_STUDENT_PANEL_HEIGHT);
+        getAllStudentsPanel.setSize(GET_ALL_STUDENTS_PANEL_WIDTH, GET_ALL_STUDENTS_PANEL_HEIGHT);
         getAllStudentsPanel.setLayout(new BoxLayout(getAllStudentsPanel, BoxLayout.X_AXIS));
         getAllStudentsPanel.setOpaque(true);
         contentPane.add(getAllStudentsPanel);
@@ -255,6 +270,7 @@ public class View extends JFrame {
      * METHODS
      */
 
+    // Refresh the student display with most current state of relation
     public void refreshStudentsDisplay(ArrayList<String> arr) {
 
         // String to write to display
