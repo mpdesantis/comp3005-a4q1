@@ -53,6 +53,7 @@ public class View extends JFrame {
     JTextPane displayStudentTextPane;
     JTextPane updateStudentEmailTextPane;
     JTextPane deleteStudentTextPane;
+    JTextPane studentsTextPane;
 
     /**************************************************************************
      * CONSTANTS
@@ -66,7 +67,7 @@ public class View extends JFrame {
 
     // DisplayPanel
     public static final int DISPLAY_PANEL_WIDTH = FRAME_WIDTH;
-    public static final int DISPLAY_PANEL_HEIGHT = FRAME_HEIGHT/2;
+    public static final int DISPLAY_PANEL_HEIGHT = FRAME_HEIGHT;
 
     // AddStudentPanel
     public static final int ADD_STUDENT_PANEL_WIDTH = FRAME_WIDTH;
@@ -128,26 +129,29 @@ public class View extends JFrame {
         displayPanel.setOpaque(true);
         contentPane.add(displayPanel);
 
+        // scrollPane
+        
+
         // Create a JPanel for the JScrollPane
-        scrollPanePanel = new JPanel();
-        scrollPanePanel.setBorder(BorderFactory.createTitledBorder("Students (click to select)"));
+        //scrollPanePanel = new JPanel();
+        //scrollPanePanel.setBorder(BorderFactory.createTitledBorder("students)"));
         // Create the JList with the items
-        studentList = new JList(); // TODO
+        //studentList = new JList(); // TODO
         // Create the JScrollPane with the list inside
-        aJScrollPane = new JScrollPane(studentList);
-        aJScrollPane.setPreferredSize(new Dimension(FRAME_WIDTH/2, 200));
+        //aJScrollPane = new JScrollPane(studentList);
+        //aJScrollPane.setPreferredSize(new Dimension(FRAME_WIDTH/2, 200));
         // Add to scrollPanePanel
-        scrollPanePanel.add(aJScrollPane);
+        //scrollPanePanel.add(aJScrollPane);
         // Add to displayPanel
-        displayPanel.add(scrollPanePanel);
+        //displayPanel.add(scrollPanePanel);
 
         // displayStudentTextPane
         displayStudentTextPane = new JTextPane();
-        displayStudentTextPane.setBorder(BorderFactory.createTitledBorder("Selected Student"));
-        displayStudentTextPane.setText("Select a student.");
+        displayStudentTextPane.setBorder(BorderFactory.createTitledBorder("students"));
+        displayStudentTextPane.setText("students...");
         displayStudentTextPane.setFont(new Font("Monospaced", Font.PLAIN, 24));
         displayStudentTextPane.setBounds(0, 0, 100, 100);
-        displayStudentTextPane.setPreferredSize(new Dimension(FRAME_WIDTH/2, 40));
+        displayStudentTextPane.setPreferredSize(new Dimension(DISPLAY_PANEL_WIDTH, DISPLAY_PANEL_HEIGHT));
         displayStudentTextPane.setEditable(false);
         displayPanel.add(displayStudentTextPane);
 

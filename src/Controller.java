@@ -59,7 +59,7 @@ public class Controller implements ActionListener, ListSelectionListener {
         view.updateStudentEmailButton.addActionListener(this);
         view.deleteStudentButton.addActionListener(this);
 
-        view.studentList.addListSelectionListener(this);
+        //view.studentList.addListSelectionListener(this);
 
         /* Initial Model Methods */
         
