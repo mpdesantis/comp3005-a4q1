@@ -67,6 +67,9 @@ Manifest required by `make` rules for JAR creation.
 ### `makeout/`
 Output generated from `make` rules defined in this directory's `Makefile`. Useful for compilation and JAR creation outside of IntelliJ idea. Will only appear if the `make` rules are invoked.
 
+### `lib/`
+JAR libraries.
+
 ### `sources.txt`
 List of Java source files in `src/` directory. Useful for manual compilation instructions.
 

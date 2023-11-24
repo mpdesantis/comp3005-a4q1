@@ -26,8 +26,8 @@ LIB_DIR = ${PROJECT_DIR}/lib/
 MANIFEST_DIR = ${PROJECT_DIR}
 MANIFEST = ${MANIFEST_DIR}/MAKE-MANIFEST.MF
 
-JAVA_FILES := Controller.java Main.java Model.java View.java
-CLASS_FILES:= Controller.class Main.class Model.class View.class
+JAVA_FILES := Controller.java Main.java Model.java View.java DatabaseOperations.java
+CLASS_FILES:= Controller.class Main.class Model.class View.class DatabaseOperations.class
 
 JAR = ${OUT_DIR}/main.jar
 JAVA_FLAGS := -g -d ${OUT_DIR} --source-path ${SOURCE_DIR} --class-path ${LIB_DIR}
