@@ -258,4 +258,26 @@ public class View extends JFrame {
      * METHODS
      */
 
+    public void refreshStudentsDisplay(ArrayList<String> arr) {
+
+        // String to write to display
+        String studentsList = "";
+
+        // Lazy check
+        if (arr == null) {
+            return;
+        }
+        
+        // String, splits on newline
+        for (String s : arr) {
+            studentsList += s;
+            studentsList += "\n";
+        }
+
+        // Write the text in the display
+        displayStudentTextPane.setText(studentsList);
+
+        return; 
+    }
+
 }

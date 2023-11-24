@@ -54,12 +54,9 @@ public class Controller implements ActionListener, ListSelectionListener {
         this.view = view;
 
         /* Register Listeners on View Components */
-
         view.addStudentButton.addActionListener(this);
         view.updateStudentEmailButton.addActionListener(this);
         view.deleteStudentButton.addActionListener(this);
-
-        //view.studentList.addListSelectionListener(this);
 
         /* Initial Model Methods */
         
@@ -141,10 +138,12 @@ public class Controller implements ActionListener, ListSelectionListener {
 
             /* Default Routine After ANY JButton Event */
 
+            // Get the current tuple strings for print
+            model.refreshStudentsArray();
+            //model.printStudentsArray();
+
             // Automatically refresh the display of all tuples in students
-            // TODO
-
-
+            view.refreshStudentsDisplay(model.getStudentsArray());
             
         }
 

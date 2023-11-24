@@ -36,6 +36,7 @@ public class Model {
 
     public DatabaseOperations dbops;
     private ArrayList<String> modelArray;
+    private ArrayList<String> studentsArray;
     private String modelString;
 
     private String user;
@@ -58,6 +59,7 @@ public class Model {
         /* Fields */
         this.dbops = new DatabaseOperations();
         this.modelArray = new ArrayList<String>(ARRAY_SIZE);
+        this.studentsArray = new ArrayList<String>();
         this.modelString = null;
         this.user = null;
         this.password = null;
@@ -79,6 +81,25 @@ public class Model {
     /**************************************************************************
      * METHODS
      */
+
+    public ArrayList<String> getStudentsArray() {
+        return this.studentsArray;
+    }
+
+    public void refreshStudentsArray() {
+        studentsArray = dbops.getAllStudents();
+    }
+
+    public void printStudentsArray() {
+        for (String s : studentsArray) {
+            System.out.println("- " + s);
+        }
+    }
+
+    public void addStudentString(String studentString) {
+        this.studentsArray.add(studentString);
+        return;
+    }
 
     public void addStudentButtonMethod(String first_name, String last_name, String email, String enrollment_date) {
 
