@@ -4,5 +4,5 @@
 * Date: 2023/11/24
 
 ## Description
-External JAR libraries.
+Source code for this project.
 
