@@ -161,7 +161,7 @@ public class Model {
     public void deleteStudentButtonMethod(String student_id) {
 
         // Debug
-        System.out.println("Invoking model method for updateStudentEmailButton event...");
+        System.out.println("Invoking model method for deleteStudentButton event...");
         System.out.println("student_id: " + student_id);
 
         // DB Operation
