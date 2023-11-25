@@ -21,6 +21,8 @@ public class Model {
      * CONSTANTS
      */
 
+    public static final String ANSI_ESC_CLEAR = "\033[H\033[2J";
+
 
     /**************************************************************************
      * INSTANCE VARIABLES
@@ -57,7 +59,8 @@ public class Model {
         user = scanner.nextLine();
         System.out.print("\nPassword:\n>> ");
         password = scanner.nextLine();
-        System.out.println("Username: " + user + " Password: " + password);
+        // Clear the console, as a pathetic security measure
+        System.out.print(ANSI_ESC_CLEAR);
 
         // Give credentials to dbops
         dbops.setCredentials(user, password);
