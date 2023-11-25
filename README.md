@@ -42,7 +42,7 @@ This method deletes an existing tuple in the `students` relation. The tuple to m
 ### Build with an IDE
 1. Direct your preferred IDE to this directory, and add the source files from the enclosed `src/` directory as build targets, and also add the external libraries in `lib/`.
 2. From within your IDE, you may execute the main method in the `Main` class to execute the program.
-3. Alternatively, you may compose an executable JAR file, specifying the `Main` class as containing the main method for your manifest. This JAR may be executed in your configured Java Virtual machine from within your file system, or through your IDE.
+3. Alternatively, you may compose an executable JAR file, specifying the `Main` class as containing the main method for your manifest. This JAR may be executed in your configured Java Virtual Machine from within your file system, or through your IDE.
 __Note__: I have tested my code in the IntelliJ IDE for functionality.
 
 ### Build with `make`
@@ -67,7 +67,7 @@ $ java -jar makeout/main.jar
 
 <a id="usage"></a>
 ## Usage
-TODO
+Upon executing the program, the user is prompted via `stdin` for their credentials to connect to the PostgreSQL database. Once authenticated, a graphical client will be launched. The user may then simply type the required arguments into the text boxes corresponding to the operations they want to perform, and then click the button for that operation. Please see the [demonstration video](https://youtu.be/qbW7ObUb3Nk) for additional instructions.
 
 <a id="contents"></a>
 ## Contents
