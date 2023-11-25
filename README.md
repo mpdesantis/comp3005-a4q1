@@ -18,7 +18,7 @@ A quick graphical client that may be used to query a PostgreSQL database of stud
 
 <a id="video"></a>
 ## Video
-Please find a very brief demonstrative video of the application [here](somelink.url).
+Please find a very brief demonstrative video of the application [here](https://youtu.be/qbW7ObUb3Nk).
 
 <a id="operations"></a>
 ## Database Operations
