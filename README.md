@@ -99,6 +99,8 @@ Java source files.
 <a id="notes"></a>
 ## Notes
 * This code has only been tested on a Linux machine.
+* This project contains code adapted from demonstration code taken from Professor A. Orogat's GitHub repository, [COMP3005_DBMS](https://github.com/aorogat/COMP3005_DBMS/), which was provided as a reference in lecture. (Thanks for this, professor!)
+* This project also contains code adapted from previous personal projects.
 
 Thanks!!
 
