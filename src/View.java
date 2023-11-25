@@ -1,6 +1,9 @@
 /** 
  * View for MVC pattern.
  *
+ * This view sets up the GUI, whcih then gets wired to the model by the
+ * controller.
+ *
  * @author Michael De Santis
  * @version 20231123
  */
@@ -270,7 +273,13 @@ public class View extends JFrame {
      * METHODS
      */
 
-    // Refresh the student display with most current state of relation
+    /** 
+     * Refresh the student display with most current state of students 
+     * relation.
+     *
+     * @author Michael De Santis
+     * @version 20231123
+     */
     public void refreshStudentsDisplay(ArrayList<String> arr) {
 
         // String to write to display

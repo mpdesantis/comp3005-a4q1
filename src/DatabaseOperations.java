@@ -33,21 +33,38 @@ public class DatabaseOperations {
     private String user;
     private String password;
 
-    // Constructor
+    /** 
+     * Default contructor.
+     *
+     * @author Michael De Santis
+     * @version 20231123
+     */
     public DatabaseOperations() {
         this.user = null;
         this.password = null;
+        return;
     }
 
-    // Set DB credentials for access
+    /** 
+     * Set DB credentials for access.
+     *
+     * @author Michael De Santis
+     * @version 20231123
+     */
     public void setCredentials(String user, String password) {
         this.user = user;
         this.password = password;
         System.out.println("Access credentials updated for DB " + url + ".");
+        return;
     }
 
-    // Query all tuples in the relation, and also return a string array 
-    // for easy prints to GUI
+    /** 
+     * Query all tuples in the relation, and also return a string array 
+     * for easy prints in a GUI.
+     *
+     * @author Michael De Santis
+     * @version 20231123
+     */
     public ArrayList<String> getAllStudents() {
 
         // ArrayList to hold records
@@ -62,7 +79,7 @@ public class DatabaseOperations {
             rs = stmt.executeQuery(SQL);
             System.out.println("Query successfully!");
 
-            // Print and also accumulate to Strings for return
+            // Accumulate to Strings for return
             while (rs.next()) {
 
                 String tupleString = "";
@@ -71,9 +88,6 @@ public class DatabaseOperations {
                 tupleString += ", last_name: " + rs.getString("last_name");
                 tupleString += ", email: " + rs.getString("email");
                 tupleString += ", enrollment_date: " + rs.getString("enrollment_date");
-
-                // Console print
-                //System.out.println(tupleString);
 
                 // Add to array for return
                 resultArray.add(tupleString);
@@ -88,7 +102,12 @@ public class DatabaseOperations {
         return resultArray;
     }
 
-    // Add a student to the relation
+    /** 
+     * Add a student to the relation.
+     *
+     * @author Michael De Santis
+     * @version 20231123
+     */
     public void addStudent(String first_name, String last_name, String email, String enrollment_date) {
         String SQL = "INSERT INTO students(first_name,last_name,email,enrollment_date) VALUES(?,?,?,?::date)";
 
@@ -109,7 +128,12 @@ public class DatabaseOperations {
         }
     }
 
-    // Update student e-mail by ID
+    /** 
+     * Update student e-mail by ID.
+     *
+     * @author Michael De Santis
+     * @version 20231123
+     */
     public void updateStudentEmail(String student_id, String new_email) {
         String SQL = "UPDATE students SET email=? WHERE student_id=?";
 
@@ -126,7 +150,12 @@ public class DatabaseOperations {
         }
     }
 
-    // Delete student tuple by ID
+    /** 
+     * Delete student tuple by ID.
+     *
+     * @author Michael De Santis
+     * @version 20231123
+     */
     public void deleteStudent(String student_id) {
         String SQL = "DELETE FROM students WHERE student_id=?";
 

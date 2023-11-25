@@ -1,6 +1,9 @@
 /** 
  * Controller for MVC pattern.
  *
+ * This class wires together the view and model, allowing graphical interaction
+ * with the view to effect change in the model.
+ *
  * @author Michael De Santis
  * @version 20231123
  */
@@ -15,8 +18,7 @@ import java.awt.event.*;
 import java.awt.Component;
 import java.util.Random;
 
-public class Controller implements ActionListener, ListSelectionListener {
-
+public class Controller implements ActionListener {
 
 
     /**************************************************************************
@@ -164,48 +166,5 @@ public class Controller implements ActionListener, ListSelectionListener {
 
     }
 
-    /**
-     * Implementation of ListSelectionListener interface method valueChanged.
-     * Registers event when value in this list is changed.
-     * 
-     * @param e The list selection event triggered.
-     *
-     * @author Michael De Santis
-     * @version 20231123
-     */
-    public void valueChanged(ListSelectionEvent e) {
-
-        Object source = e.getSource();
-
-        // JList
-        if (source instanceof JList) {
-            JList<String> sourceJList = (JList<String>)source;
-            if (!sourceJList.getValueIsAdjusting()) {
-                // Get the list of selected indices
-                int[] selectedItemIndices = view.studentList.getSelectedIndices();
-
-                // Print the currently selected items
-                System.out.println("JList selection changed.");
-                System.out.println("JList value(s) currently selected:");
-                for (int i = 0; i < selectedItemIndices.length; i++) {
-                    //System.out.println("\t"+studentList[selectedItemIndices[i]]);
-                }
-
-                // Update the display with first selection
-                if (selectedItemIndices.length > 0) {
-                    int firstIndex = selectedItemIndices[0];
-                    String displayString = new String();
-                    displayString = "\nStudent ID: " + "xxx" +
-                        "\nFirst Name: " + "xxx" +
-                        "\nLast Name: " + "xxx" +
-                        "\nNumber: " + "xxx" +
-                        "\nemail: " + "xxx";
-                    // TODO
-                    //displayStudentTextPane.setText(displayString);
-                }
-
-            }
-        }    
-    }
 
 }

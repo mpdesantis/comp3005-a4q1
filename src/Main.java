@@ -1,5 +1,6 @@
 /**
- * Main class which creates the objects for this program. 
+ * Main class which creates the objects for this program. Once the
+ * initializations are done, flow is dictated by the controller.
  * 
  * @author Michael De Santis
  * @version 20231123
@@ -17,6 +18,12 @@ import java.util.Random;
 
 class Main {
 
+    /** 
+     * Main method.
+     *
+     * @author Michael De Santis
+     * @version 20231123
+     */
     public static void main(String[] args) {
 
         System.out.println("\n**** PROGRAM START: Main.java ****");

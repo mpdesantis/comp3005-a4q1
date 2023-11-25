@@ -1,6 +1,9 @@
 /** 
  * Model for MVC pattern.
  *
+ * This model instantiates the DatabaseOperations class, and manages
+ * calls to it.
+ *
  * @author Michael De Santis
  * @version 20231123
  */
@@ -39,7 +42,7 @@ public class Model {
      */
 
     /**
-     * Default constructor for Model
+     * Default constructor for Model.
      *
      * @author Michael De Santis
      * @version 20231118
@@ -72,25 +75,48 @@ public class Model {
      * METHODS
      */
 
+    /** 
+     * Return the ArrayList of Strings representing the tuples in the students 
+     * relation.
+     *
+     * @author Michael De Santis
+     * @version 20231123
+     */
     public ArrayList<String> getStudentsArray() {
         return this.studentsArray;
     }
 
-    public void refreshStudentsArray() {
-        studentsArray = dbops.getAllStudents();
-    }
-
+    /** 
+     * Print the ArrayList of Strings representing the tuples in the students 
+     * relation.
+     *
+     * @author Michael De Santis
+     * @version 20231123
+     */
     public void printStudentsArray() {
         for (String s : studentsArray) {
             System.out.println("- " + s);
         }
     }
 
+    /** 
+     * Add a String to the ArrayList of Strings representing the tuples in the 
+     * students relation.
+     *
+     * @author Michael De Santis
+     * @version 20231123
+     */
     public void addStudentString(String studentString) {
         this.studentsArray.add(studentString);
         return;
     }
 
+    /** 
+     * Invoke the addStudent operation on the DB.
+     *
+     * @author Michael De Santis
+     * @version 20231123
+     */
     public void addStudentButtonMethod(String first_name, String last_name, String email, String enrollment_date) {
 
         // Debug
@@ -107,6 +133,12 @@ public class Model {
         return;
     }
 
+    /** 
+     * Invoke the updateStudentEmail operation on the DB.
+     *
+     * @author Michael De Santis
+     * @version 20231123
+     */
     public void updateStudentEmailButtonMethod(String student_id, String email) {
 
         // Debug
@@ -120,6 +152,12 @@ public class Model {
         return;
     }
 
+    /** 
+     * Invoke the deleteStudent operation on the DB.
+     *
+     * @author Michael De Santis
+     * @version 20231123
+     */
     public void deleteStudentButtonMethod(String student_id) {
 
         // Debug
@@ -131,5 +169,17 @@ public class Model {
 
         return;
     }
+
+    /** 
+     * Invoke the getAllStudents operation on the DB to refresh the ArrayList 
+     * of Strings representing the tuples in the students relation.
+     *
+     * @author Michael De Santis
+     * @version 20231123
+     */
+    public void refreshStudentsArray() {
+        studentsArray = dbops.getAllStudents();
+    }
+
 
 }
